@@ -1,54 +1,108 @@
+/* Reset e estrutura base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
   color: #333;
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 40px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Lado esquerdo: formulário */
+form {
   background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
-  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
   color: #2c3e50;
 }
 
-form label {
+label {
+  display: block;
+  margin-bottom: 5px;
   font-weight: 600;
 }
 
-input[type="number"] {
+input {
   width: 100%;
-  padding: 8px;
-  margin-top: 6px;
-  margin-bottom: 14px;
+  padding: 12px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  border-radius: 6px;
   font-size: 16px;
+}
+
+input:focus {
+  border-color: #2980b9;
+  outline: none;
 }
 
 button {
   width: 100%;
+  padding: 12px;
   background-color: #2980b9;
   color: white;
-  padding: 10px;
-  font-size: 18px;
+  font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background 0.2s;
+  margin-bottom: 10px;
 }
 
 button:hover {
-  background-color: #1c5980;
+  background-color: #1f5f8b;
 }
 
+/* Resultado */
 #resultado {
-  text-align: center;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
   color: #27ae60;
+  margin-top: 20px;
+}
+
+/* Lado direito: testes */
+.testes {
+  flex: 1;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.testes h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+#testes-resultados {
+  white-space: pre-wrap;
+  font-family: monospace;
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
 }

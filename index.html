@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calculadora de Juros Compostos</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculadora de Juros Compostos</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <h1>Calculadora de Juros Compostos</h1>
+    <h1>Calculadora de Juros Compostos</h1>
 
-  <form id="form-calculo">
-    <label for="capital">Capital Inicial (R$):</label><br />
-    <input type="number" id="capital" name="capital" step="0.01" min="0" required /><br /><br />
+    <form id="form-calculo">
+        <label for="capital">Capital Inicial (R$):</label><br />
+        <input type="number" id="capital" name="capital" step="any" min="0" required /><br /><br />
 
-    <label for="taxa">Taxa de Juros (%):</label><br />
-    <input type="number" id="taxa" name="taxa" step="0.01" min="0" required /><br /><br />
+        <label for="taxa">Taxa de Juros (%):</label><br />
+        <input type="number" id="taxa" name="taxa" step="any" min="0" required /><br /><br />
 
-    <label for="tempo">Tempo (dias, meses, anos):</label><br />
-    <input type="number" id="tempo" name="tempo" min="1" required /><br /><br />
+        <label for="tempo">Tempo (dias, meses, anos):</label><br />
+        <input type="number" id="tempo" name="tempo" min="1" required /><br /><br />
 
-    <button type="submit">Calcular</button>
-  </form>
+        <button type="submit">Calcular</button>
+    </form>
 
-  <div id="resultado" style="margin-top:20px; font-weight: bold;"></div>
-  <script src="script.js"></script>
+    <div id="resultado" style="margin-top:20px; font-weight: bold;"></div>
+    
+    <button id="rodarTestesUnitBtn">Rodar Testes Unitarios</button>
+    <button id="rodarTestesComponentBtn">Rodar Testes Component</button>
+
+    <div id="testes-resultados"></div>
+
+    <script src="Testes/calculobase.js"></script>
+    <script src="script.js"></script>
+    <script src="Testes/rodarteste.js"></script>
+    <script src="Testes/testeunitario.js"></script>
+    <script src="Testes/testecomponente.js"></script>
 </body>
+
 </html>
