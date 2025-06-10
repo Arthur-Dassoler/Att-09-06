@@ -1,6 +1,6 @@
 function runUnitTests() {
 
-  //Dentro das funções "calcularJurosCompostos", 1 = 100% assim como 0,08 = 8%
+  //Dentro das funções "calcularJurosCompostos", o valor do meio, no caso a taxa, esta definida sendo 1 = 100% logo, 0,08 = 8%
 
   // Teste de taxa 100%
   testar("Taxa 100%", () => {
@@ -19,8 +19,11 @@ function runUnitTests() {
 
   // Teste de capital 0
   testar("Capital nula", () => {
-    if (calcularJurosCompostos(0, 1, 1) !== 0) throw new Error("Esperado 8000")
+    if (calcularJurosCompostos(0, 1, 1) !== 0) throw new Error("Esperado 0")
   });
 
-  //
+  // Teste de decimais
+    testar("Números decimais", () => {
+    if (calcularJurosCompostos(2.5, 0.90, 5) !== 61.9) throw new Error("Esperado 61.9")
+  });
 }
