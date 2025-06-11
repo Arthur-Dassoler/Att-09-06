@@ -66,7 +66,7 @@ function runUnitTests() {
     const tempo = Number(document.getElementById("tempo").value);
 
     if ((capital < 0) || (taxa < 0) || (tempo < 0)) {
-      throw new Error("Esperado números");
+      throw new Error("Esperado somente números positivos");
     }
   })
 }
