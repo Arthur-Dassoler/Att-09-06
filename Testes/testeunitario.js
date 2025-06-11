@@ -42,7 +42,7 @@ function runUnitTests() {
   });
 
   // Teste geral
-  testar("UNIT - 3 varíaveis", () => {
+  testar("UNIT - 3 varíaveis funcionando (capital, taxa e tempo)", () => {
     const resultado = calcularJurosCompostos(4000, 0.1, 12)
     const esperado = 12553.71;
     if (Math.abs(resultado - esperado) > 0.01) throw new Error(`Esperado ${esperado}, obtido ${resultado}`)

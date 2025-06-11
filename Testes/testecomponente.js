@@ -32,11 +32,53 @@ function runComponentTests() {
       form.removeEventListener("submit", listener);
     };
 
-    form.addEventListener("submit", listener);
+    form.addEventListener("submit", listener)
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
 
-    if (!chamado) throw new Error("Evento de submit não foi chamado");
+    if (!chamado) throw new Error("Evento de submit não foi chamado")
   });
 
+  // Teste de botão
+  testar("COMPONENT - Botão de cálculo encontrado", () => {
+    const botao = document.getElementById("botaocalculo")
+    if (!botao) throw new Error("Botão não encontrado")
+  });
 
+  // Teste de resultado
+  testar("COMPONENT - Resultado encontrado", () => {
+    const resultado = document.getElementById("resultado");
+    if (!resultado) throw new Error("Elemento de resultado não encontrado");
+  })
+
+  // Teste de funcionalidade do botão
+  testar("COMPONENT - Botão de cálculo funciona", () => {
+    const capital = document.getElementById("capital");
+    const taxa = document.getElementById("taxa");
+    const tempo = document.getElementById("tempo");
+    const botao = document.getElementById("botaocalculo");
+    const resultado = document.getElementById("resultado");
+
+    capital.value = 4000;
+    taxa.value = 1;
+    tempo.value = 2;
+
+    botao.click();
+
+    const esperado = "4080";
+    if (!resultado.textContent.includes(esperado)) {
+      throw new Error(`Esperado que resultado contivesse "${esperado}", mas foi: "${resultado.textContent}"`);
+    }
+  })
+
+  // Teste de exibição correta de resultado
+  testar("COMPONENT - Exibição correta do resultado", () => {
+    document.getElementById("capital").value = 4000;
+    document.getElementById("taxa").value = 1;
+    document.getElementById("tempo").value = 2;
+
+    document.getElementById("botaocalculo").click();
+
+    const texto = document.getElementById("resultado").textContent;
+    if (!texto.includes("4080")) throw new Error("Esperado 4080, mas obtido " + texto);
+  });
 }
