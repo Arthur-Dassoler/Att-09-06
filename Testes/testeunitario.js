@@ -33,9 +33,9 @@ function runUnitTests() {
   testar("UNIT - Numeros muito pequenos", () => {
     const resultado = calcularJurosCompostos(0.0001, 0.05, 10);
     const esperado = 0.0001 * (1.05) ** 10;
-  
+
     const arredondar = valor => Math.round(valor * 1e8) / 1e8; // 8 casas decimais
-  
+
     if (arredondar(resultado) !== arredondar(esperado)) {
       throw new Error(`Esperado ${arredondar(esperado)}, obtido ${arredondar(resultado)}`)
     }
@@ -46,5 +46,27 @@ function runUnitTests() {
     const resultado = calcularJurosCompostos(4000, 0.1, 12)
     const esperado = 12553.71;
     if (Math.abs(resultado - esperado) > 0.01) throw new Error(`Esperado ${esperado}, obtido ${resultado}`)
+  })
+
+  // Teste de caracteres
+  testar("UNIT - Caracteres não são aceitos", () => {
+    const capital = Number(document.getElementById("capital").value);
+    const taxa = Number(document.getElementById("taxa").value);
+    const tempo = Number(document.getElementById("tempo").value);
+
+    if (isNaN(capital) || isNaN(taxa) || isNaN(tempo)) {
+      throw new Error("Esperado números");
+    }
+  })
+
+  // Teste de negativos
+  testar("UNIT - Números negativos não são aceitos", () => {
+    const capital = Number(document.getElementById("capital").value);
+    const taxa = Number(document.getElementById("taxa").value);
+    const tempo = Number(document.getElementById("tempo").value);
+
+    if ((capital < 0) || (taxa < 0) || (tempo < 0)) {
+      throw new Error("Esperado números");
+    }
   })
 }
